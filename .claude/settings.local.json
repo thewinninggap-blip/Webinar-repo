@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Agnel John/Downloads/**)",
+      "Bash(ls \"emc designs-handoff.zip\")",
+      "Bash(unzip -o \"emc designs-handoff.zip\" -d \"C:\\\\Users\\\\Agnel John\\\\OneDrive\\\\Desktop\\\\Webinar-Landing-Page\")",
+      "Bash(npm create *)",
+      "Bash(npx --yes create-vite@5.5.5 . --template react)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "mcp__243165b0-2a79-4762-b539-6b11537c14e6__list_teams",
+      "mcp__243165b0-2a79-4762-b539-6b11537c14e6__deploy_to_vercel",
+      "Bash(vercel whoami *)",
+      "Bash(vercel deploy *)"
+    ]
+  }
+}

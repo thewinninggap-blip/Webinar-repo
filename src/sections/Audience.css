@@ -1,0 +1,65 @@
+.audience-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.audience-left h2 {
+  font-size: 36px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+}
+
+.audience-left p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.audience-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.audience-row {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.45;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.audience-row:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.audience-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 900px) {
+  .audience-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .audience-left h2 { font-size: 28px; }
+}

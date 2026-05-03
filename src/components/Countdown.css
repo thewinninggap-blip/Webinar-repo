@@ -1,0 +1,41 @@
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.countdown-cell {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 8px 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.countdown-num {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.countdown-lbl {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+@media (max-width: 400px) {
+  .countdown-num { font-size: 22px; }
+  .countdown-cell { padding: 12px 6px 10px; }
+}

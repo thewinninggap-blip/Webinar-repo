@@ -1,0 +1,79 @@
+.finalcta-section {
+  background: var(--green-deep);
+  color: #cfe7dd;
+  position: relative;
+  overflow: hidden;
+}
+
+.finalcta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(79,220,147,0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.finalcta-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.finalcta-left h2 {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.finalcta-left p {
+  color: rgba(207,231,221,0.75);
+  line-height: 1.65;
+  font-size: 15px;
+  margin-top: 14px;
+  max-width: 400px;
+}
+
+.finalcta-meta {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+.finalcta-meta li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(207,231,221,0.8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.finalcta-meta li::before {
+  content: '→';
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.finalcta-form {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(79,220,147,0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+@media (max-width: 900px) {
+  .finalcta-wrap { grid-template-columns: 1fr; gap: 36px; }
+  .finalcta-left h2 { font-size: 32px; }
+}
+@media (max-width: 640px) {
+  .finalcta-left h2 { font-size: 26px; }
+  .finalcta-form { padding: 22px 18px; }
+}

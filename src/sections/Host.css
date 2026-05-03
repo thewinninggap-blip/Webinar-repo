@@ -1,0 +1,110 @@
+.host-wrap {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.host-photo {
+  aspect-ratio: 1;
+}
+
+.host-photo-inner {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background:
+    repeating-conic-gradient(var(--yellow) 0% 25%, #fff 0% 50%) 50% / 32px 32px;
+  border: 2px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.host-photo-placeholder {
+  position: absolute;
+  inset: 12px 12px 0;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(160deg, var(--green-soft) 0%, rgba(79,220,147,0.3) 100%);
+  border: 2px dashed rgba(79,220,147,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.host-photo-placeholder span {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green-deep);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.host-photo-placeholder p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+
+.host-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.host-copy h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+
+.host-role {
+  color: var(--muted);
+  font-size: 15px;
+  margin: -8px 0 0;
+}
+
+.host-bio {
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.host-creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.host-cred {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .host-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .host-photo { max-width: 260px; }
+  .host-copy h2 { font-size: 30px; }
+}
+
+@media (max-width: 640px) {
+  .host-copy h2 { font-size: 26px; }
+  .host-bio { font-size: 14px; }
+}

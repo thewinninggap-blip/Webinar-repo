@@ -1,0 +1,111 @@
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reg-form--dark .reg-field label {
+  color: rgba(207, 231, 221, 0.75);
+}
+.reg-form--dark .reg-field input {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255,255,255,0.15);
+  color: #cfe7dd;
+}
+.reg-form--dark .reg-field input::placeholder { color: rgba(207,231,221,0.4); }
+.reg-form--dark .reg-field input:focus { border-color: var(--green); }
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.reg-optional {
+  font-size: 10px;
+  opacity: 0.7;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.reg-field input {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 13px 14px;
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.reg-field input:focus {
+  border-color: var(--green-deep);
+  box-shadow: 0 0 0 3px rgba(79, 220, 147, 0.15);
+}
+.reg-field input.error { border-color: #e05555; }
+
+.reg-error {
+  font-size: 12px;
+  color: #e05555;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.reg-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.reg-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 15px;
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+}
+
+.reg-fine {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.reg-form--dark .reg-fine { color: rgba(207,231,221,0.45); }
+
+/* Success state */
+.reg-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--green-soft);
+  border: 1.5px solid var(--green);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  color: var(--green-deep);
+}
+.reg-success--dark {
+  background: rgba(79, 220, 147, 0.12);
+  border-color: rgba(79, 220, 147, 0.4);
+  color: #cfe7dd;
+}
+.reg-success-icon {
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.reg-success strong { display: block; font-size: 16px; margin-bottom: 4px; }
+.reg-success p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
+
+@media (max-width: 480px) {
+  .reg-row2 { grid-template-columns: 1fr; }
+}
