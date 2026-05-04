@@ -12,22 +12,9 @@
 }
 
 .footer-logo {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-.footer-logo-mark {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.footer-logo-sub {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
 }
 
 .footer-links {

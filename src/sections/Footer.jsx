@@ -1,3 +1,4 @@
+import EMCLogo from '../components/EMCLogo'
 import './Footer.css'
 
 const LINKS = ['About', 'Programs', 'Webinar', 'Contact', 'Privacy']
@@ -8,8 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-inner">
           <div className="footer-logo">
-            <span className="footer-logo-mark">emc</span>
-            <span className="footer-logo-sub">error makes clever</span>
+            <EMCLogo height={90} showTagline={true} />
           </div>
 
           <nav className="footer-links">

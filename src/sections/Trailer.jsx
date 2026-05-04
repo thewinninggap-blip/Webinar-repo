@@ -1,6 +1,8 @@
+import { useModal } from '../context/ModalContext'
 import './Trailer.css'
 
 export default function Trailer() {
+  const { openModal } = useModal()
   return (
     <section id="trailer" className="trailer-section section">
       <div className="container">
@@ -29,10 +31,10 @@ export default function Trailer() {
               <span>SUBTITLED</span>
               <span>NO SIGNUP</span>
             </div>
-            <a href="#register" className="btn btn-green">
+            <button onClick={openModal} className="btn btn-green">
               Reserve my seat
               <span className="btn-arrow">→</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

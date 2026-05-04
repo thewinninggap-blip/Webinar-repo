@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import EMCLogo from './EMCLogo'
+import { useModal } from '../context/ModalContext'
 import './Nav.css'
 
 const NAV_LINKS = [
@@ -11,6 +13,7 @@ const NAV_LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { openModal } = useModal()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -23,8 +26,7 @@ export default function Nav() {
       <div className="nav-inner container">
         {/* Logo */}
         <a href="#hero" className="nav-logo">
-          <span className="nav-logo-mark">emc</span>
-          <span className="nav-logo-sub">error makes clever</span>
+          <EMCLogo height={36} showTagline={false} />
         </a>
 
         {/* Desktop links */}
@@ -37,10 +39,10 @@ export default function Nav() {
         </ul>
 
         {/* CTA */}
-        <a href="#register" className="btn btn-ink nav-cta">
+        <button onClick={openModal} className="btn btn-ink nav-cta">
           Join the webinar
           <span className="btn-arrow">↗</span>
-        </a>
+        </button>
 
         {/* Hamburger */}
         <button
@@ -62,10 +64,10 @@ export default function Nav() {
               </li>
             ))}
           </ul>
-          <a href="#register" className="btn btn-green" onClick={() => setMenuOpen(false)}>
+          <button className="btn btn-green" onClick={() => { openModal(); setMenuOpen(false) }}>
             Join the webinar
             <span className="btn-arrow">↗</span>
-          </a>
+          </button>
         </div>
       )}
     </nav>

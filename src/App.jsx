@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import { ModalProvider } from './context/ModalContext'
+import JoinModal from './components/JoinModal'
 import Nav from './components/Nav'
 import Hero from './sections/Hero'
 import Highlights from './sections/Highlights'
@@ -40,7 +42,7 @@ export default function App() {
   useScrollReveal()
 
   return (
-    <>
+    <ModalProvider>
       <Nav />
       <main>
         <Hero />
@@ -58,6 +60,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+      <JoinModal />
+    </ModalProvider>
   )
 }

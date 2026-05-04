@@ -23,24 +23,10 @@
 
 /* Logo */
 .nav-logo {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
-}
-.nav-logo-mark {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-.nav-logo-sub {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+  line-height: 0;
 }
 
 /* Links */

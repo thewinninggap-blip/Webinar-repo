@@ -1,3 +1,4 @@
+import { useModal } from '../context/ModalContext'
 import './Hero.css'
 
 const TOOLS = [
@@ -76,6 +77,7 @@ function getNextWebinarDate() {
 
 export default function Hero() {
   const nextWebinarDate = getNextWebinarDate()
+  const { openModal } = useModal()
 
   return (
     <section id="hero" className="hero-section">
@@ -145,10 +147,10 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="hero-ctas reveal">
-            <a href="#register" className="btn btn-green">
+            <button onClick={openModal} className="btn btn-green">
               Join the webinar
               <span className="btn-arrow">↗</span>
-            </a>
+            </button>
             <a href="#trailer" className="btn btn-ghost">
               Watch trailer
               <span className="btn-arrow">▶</span>

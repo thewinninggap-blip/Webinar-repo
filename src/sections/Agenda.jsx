@@ -1,3 +1,4 @@
+import { useModal } from '../context/ModalContext'
 import './Agenda.css'
 
 const ACTS = [
@@ -8,6 +9,7 @@ const ACTS = [
 ]
 
 export default function Agenda() {
+  const { openModal } = useModal()
   return (
     <section className="agenda-section section">
       <div className="container">
@@ -27,10 +29,10 @@ export default function Agenda() {
         </div>
 
         <div className="agenda-cta reveal">
-          <a href="#register" className="btn btn-ghost-light">
+          <button onClick={openModal} className="btn btn-ghost-light">
             Reserve my seat
             <span className="btn-arrow">↗</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>
