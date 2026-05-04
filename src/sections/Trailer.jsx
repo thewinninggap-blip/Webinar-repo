@@ -7,13 +7,15 @@ export default function Trailer() {
     <section id="trailer" className="trailer-section section">
       <div className="container">
         <div className="trailer-wrap">
-          <div className="trailer-video reveal" role="button" tabIndex={0} aria-label="Play trailer">
-            <span className="trailer-tag">2 min preview</span>
-            <div className="trailer-play">
-              <span>▶</span>
-            </div>
-            <span className="trailer-duration">02:14</span>
-            <span className="trailer-caption">A peek inside Sunday's session</span>
+          <div className="trailer-video reveal">
+            <iframe
+              src="https://www.youtube.com/embed/pUfOT5FMsuY?si=Jtg3CZl1aqbtzSn-"
+              title="3D Webinar Trailer"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
 
           <div className="trailer-copy reveal reveal-delay-1">
