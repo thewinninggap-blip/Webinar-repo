@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're In! — EMC 3D Webinar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #4fdc93;
+      --green-soft: #e6faf1;
+      --ink: #0d1411;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--ink);
+      color: #fff;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 20px;
+      border: 2px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--green);
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .check {
+      width: 72px;
+      height: 72px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 24px;
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .details {
+      background: var(--green-soft);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .detail-row span.icon {
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    @media (max-width: 500px) {
+      .card { padding: 36px 24px; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">✓</div>
+    <span class="eyebrow">Payment confirmed</span>
+    <h1>You're in — see you Sunday!</h1>
+    <p>
+      Your seat is reserved for the 3D Webinar. Check your inbox for the Zoom link
+      and everything you need to join on Sunday at 10 AM IST.
+    </p>
+
+    <div class="details">
+      <div class="detail-row">
+        <span class="icon">📅</span>
+        <span>Sunday · 10 AM – 2 PM IST</span>
+      </div>
+      <div class="detail-row">
+        <span class="icon">📩</span>
+        <span>Zoom link sent to your email</span>
+      </div>
+      <div class="detail-row">
+        <span class="icon">🎓</span>
+        <span>Access your course from LectureHead</span>
+      </div>
+    </div>
+
+    <a href="/" class="btn">
+      ← Back to home
+    </a>
+  </div>
+</body>
+</html>

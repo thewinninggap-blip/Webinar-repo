@@ -136,17 +136,24 @@ export default function JoinModal() {
         body: JSON.stringify({ token, courseId: 3 }),
       })
       const payData = await payRes.json().catch(() => ({}))
-      if (!payRes.ok || !payData.success) {
+      if (!payRes.ok) {
         setApiError(getErrorMessage(payData, 'Could not generate payment link. Please try again.'))
         setLoading(false)
         return
       }
 
-      const { redirectUrl, hasAccess } = payData?.data?.data ?? {}
+      // Handle both flat and nested response shapes
+      const inner = payData?.data?.data ?? payData?.data ?? payData ?? {}
+      const redirectUrl = inner.redirectUrl
+      const hasAccess = inner.hasAccess
+
       if (hasAccess) {
         setStep('success')
-      } else {
+      } else if (redirectUrl) {
         window.location.href = redirectUrl
+      } else {
+        setApiError('Could not generate payment link. Please try again.')
+        setLoading(false)
       }
     } catch {
       setApiError('Network error. Please check your connection.')
