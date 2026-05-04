@@ -1,10 +1,11 @@
+import { useState, useRef } from 'react'
 import './VideoTestimonials.css'
 
 const STORIES = [
   {
     name: 'Priya R.',
     location: 'BENGALURU · STUDENT',
-    duration: '1:24',
+    youtubeId: '6g8QhrJHjEk',
     tag: 'SHIPPED IN 1 SUNDAY',
     quote: '"I came in not knowing how to deploy. By 2 PM my portfolio site was live with my own .com domain — and I landed my first freelance client the same week."',
     meta: 'Built a portfolio site · ₹12k first client',
@@ -27,6 +28,65 @@ const STORIES = [
   },
 ]
 
+function VideoCard({ story, index }) {
+  const [playing, setPlaying] = useState(false)
+  const iframeRef = useRef(null)
+
+  const handlePlay = () => {
+    iframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'playVideo', args: '' }),
+      '*'
+    )
+    setPlaying(true)
+  }
+
+  return (
+    <div className={`vtesti-card reveal reveal-delay-${index}`}>
+      <div className={`vtesti-video${story.youtubeId ? ' vtesti-video--yt' : ''}`}>
+        {story.youtubeId ? (
+          <>
+            <iframe
+              ref={iframeRef}
+              src={`https://www.youtube.com/embed/${story.youtubeId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1`}
+              title={`${story.name} testimonial`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+            {!playing && (
+              <div className="vtesti-overlay" onClick={handlePlay}>
+                <div className="vtesti-play">▶</div>
+                <div className="vtesti-nameplate">
+                  <strong>{story.name}</strong>
+                  <span>{story.location}</span>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            <div className="vtesti-play">▶</div>
+            <div className="vtesti-duration mono">{story.duration}</div>
+            <div className="vtesti-nameplate">
+              <strong>{story.name}</strong>
+              <span>{story.location}</span>
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="vtesti-body">
+        <span className="vtesti-tag">{story.tag}</span>
+        <p>{story.quote}</p>
+        <div className="vtesti-meta">
+          <strong>{story.name}</strong> · {story.meta}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function VideoTestimonials() {
   return (
     <section className="vtesti-section section">
@@ -39,23 +99,7 @@ export default function VideoTestimonials() {
 
         <div className="vtesti-grid">
           {STORIES.map((s, i) => (
-            <div key={i} className={`vtesti-card reveal reveal-delay-${i}`}>
-              <div className="vtesti-video">
-                <div className="vtesti-play">▶</div>
-                <div className="vtesti-duration mono">{s.duration}</div>
-                <div className="vtesti-nameplate">
-                  <strong>{s.name}</strong>
-                  <span>{s.location}</span>
-                </div>
-              </div>
-              <div className="vtesti-body">
-                <span className="vtesti-tag">{s.tag}</span>
-                <p>{s.quote}</p>
-                <div className="vtesti-meta">
-                  <strong>{s.name}</strong> · {s.meta}
-                </div>
-              </div>
-            </div>
+            <VideoCard key={i} story={s} index={i} />
           ))}
         </div>
       </div>

@@ -30,6 +30,36 @@
   cursor: pointer;
 }
 
+/* YouTube portrait embed */
+.vtesti-video--yt {
+  aspect-ratio: 9 / 16;
+  background: #000;
+  cursor: default;
+}
+
+.vtesti-video--yt iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.vtesti-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.32);
+  transition: background 0.2s ease;
+  z-index: 2;
+}
+.vtesti-overlay:hover { background: rgba(0, 0, 0, 0.18); }
+.vtesti-overlay:hover .vtesti-play { transform: scale(1.08); }
+
 .vtesti-play {
   width: 64px;
   height: 64px;
