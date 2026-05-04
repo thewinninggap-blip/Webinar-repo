@@ -13,6 +13,14 @@ function getErrorMessage(data, fallback) {
   return fallback
 }
 
+// Strip everything except digits, then normalise to 10 digits (drop leading 91 country code)
+function sanitizePhone(raw) {
+  const digits = raw.replace(/\D/g, '')
+  if (digits.length === 12 && digits.startsWith('91')) return digits.slice(2)
+  if (digits.length === 11 && digits.startsWith('0')) return digits.slice(1)
+  return digits
+}
+
 export default function JoinModal() {
   const { open, closeModal } = useModal()
   const [form, setForm] = useState(INITIAL)
@@ -114,7 +122,7 @@ export default function JoinModal() {
           email: form.email,
           otp: form.otp,
           name: form.name,
-          phoneNumber: form.phone,
+          phoneNumber: sanitizePhone(form.phone),
         }),
       })
       const data = await res.json().catch(() => ({}))
